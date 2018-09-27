@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ACTIVITAT</title>
+    <script>
+        // <Helpers>
+        function br() {
+            document.write("<br>");
+        }
+
+        function section(name) {
+            document.write(name);
+            br();
+        }
+
+        function render(title, total) {
+            document.write(title, ": ", total);
+            br();
+        }
+        // </Helpers>
+    </script>
+</head>
+
+<body>
+    <script>
+        function A() {
+            let n = prompt("Give me a #:");
+            let n2 = prompt("Give me another #:");
+
+            let res = (n > n2) ? parseInt(n) + parseInt(n2) : n2 - n;
+            return res;
+        }
+
+        function B(n) {
+            let marks = [];
+            let res = 0;
+            for (let i = 0; i < n; i++) {
+                marks[i] = prompt("Give the student mark " + (i + 1) + ":");
+                res += parseInt(marks[i]);
+            }
+            res /= marks.length;
+            return res;
+        }
+        
+        section("A)")
+        render("The result is", A());
+
+        section("B)");
+        let res = B(3);
+        let aproved = res >= 5;
+        render(name + " " + (aproved ? "aprove" : "failed") + " with an average mark of", res.toFixed(2));
+
+        section("C)");
+        let n = prompt("Give me a number :v");
+        render("Number " + n + " is", (n % 2 == 0) ? "even" : "odd");
+
+        section("D)");
+        let age = prompt("Give me your age:");
+        let inAge = (age >= 18 && age <= 65) ? "You are in working age!" : "You are not in working age :c";
+        document.write(inAge);
+    </script>
+</body>
+
+</html>
