@@ -6,11 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>ACTIVITAT</title>
-</head>
-
-<body>
     <script>
-        // Helpers
+        // <Helpers>
         function br() {
             document.write("<br>");
         }
@@ -21,11 +18,15 @@
         }
 
         function render(title, total) {
-            br();
             document.write(title, ": ", total);
             br();
         }
         // </Helpers>
+    </script>
+</head>
+
+<body>
+    <script>
 
         // A
         let len = prompt("Square length:");
@@ -36,11 +37,11 @@
         let sum = 0;
         let mult = 1;
         for (let i = 0; i < 4; i++) {
-            let x = parseInt(prompt("Tell me numer ", i, ": "));
+            let x = parseInt(prompt("Tell me number " + i + ": "));
             sum += x;
             mult *= x;
         }
-        section("B");
+        section("B)");
         render("Addition", sum);
         render("Product", mult);
 
@@ -53,7 +54,7 @@
         }
         section("C)")
         render("The total bill is", res);
-        
+
         // D
         section("D)");
         let base = prompt("La base de tu triangulo:");
