@@ -11,8 +11,21 @@
 
 <body>
     <script>
+        // Helpers
+        function br(){
+            document.write("<br>");
+        }
+
+        function render(title, total){
+            br();
+            document.write(title, ": ", total);
+            br();
+        }
+        // </Helpers>
+
         let len = prompt("Square length:");
-        document.write("A) <br> Square perimeter: ",len*4);
+        document.write("A)");
+        render("Square perimeter", len*4)
 
         let sum = 0;
         let mult = 1;
@@ -21,10 +34,18 @@
             sum += x;
             mult *= x;
         }
-        document.write("B)<br>")
-        document.write("Addition: ", sum);
-        document.write("<br>")
-        document.write("Product: ", mult);
+        document.write("B)");
+        render("Addition", sum);
+        render("Product", mult);
+        
+        let res = 0;
+        for (let i = 0; i < 2; i++) {
+            let price = prompt("Tell me the price of a product:");
+            let quantity = prompt("How many did you buy?");
+            res+= price * quantity;
+        }
+        render("The total bill is", res);
+
     </script>
 </body>
 
