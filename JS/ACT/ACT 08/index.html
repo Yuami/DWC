@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ACTIVITAT</title>
+    <script>
+        // <Helpers>
+        function br() {
+            document.write("<br>");
+        }
+
+        function section(name) {
+            document.write(name);
+            br();
+        }
+
+        function render(title, total) {
+            document.write(title, ": ", total);
+            br();
+        }
+        // </Helpers>
+    </script>
+</head>
+
+<body>
+    <script>
+        section("A)");
+        let day = prompt("Wich day is today?");
+        let month = prompt("Wich month is today? (number)");
+        let year = prompt("Wich year is today?");
+
+        let is = "is not";
+        if (day == 25 && month == 12) {
+            is = "is";
+        }
+        document.write("Today " + is + " christmas");
+
+        section("B)");
+        let n = [];
+        n[0] = prompt("Give me a number:");
+        n[1] = prompt("Give me another number:");
+        n[2] = prompt("Give me another number:");
+
+        if (n[0] == 10 && n[1] == 10 && n[2] == 10) {
+            document.write("All numbers are smaller than 10");
+        }
+        br();
+        document.write("Not all numbers are smaller than 10");
+
+        section("C)");
+        let x = prompt("Give me an X coodinate:");
+        let y = prompt("Give me an Y coodinate:");
+
+        let nQuadrant = "First quadrant";
+        if (x < 0 && y > 0) {
+            nQuadrant = "Second quadrant";
+        } else if (x < 0 && y < 0) {
+            nQuadrant = "Third quadrant";
+        } else if (x > 0 && y < 0) {
+            nQuadrant = "Fourth quadrant";
+        }
+        render("Your coordinates are in the:", nQuadrant);
+
+        section("D)");
+        let salary = parseInt(prompt("Insert you salary"));
+        let expirience = parseInt(prompt("Insert how many years you worked for the company"));
+
+        if (salary < 500){
+            if (expirience >= 10) {
+                salary *= 1.2;
+            } else {
+                salary *= 1.05;
+            }
+        }
+
+        render("Your salary should be", salary);
+
+    </script>
+</body>
+
+</html>
