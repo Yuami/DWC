@@ -18,7 +18,12 @@
         }
 
         function render(title, total) {
-            document.write(title, ": ", total);
+            res = title;
+            if (total !== false) {
+                res += ": " + total;
+            }
+
+            document.write(res);
             br();
         }
         // </Helpers>
@@ -37,6 +42,7 @@
             is = "is";
         }
         document.write("Today " + is + " christmas");
+        br();
 
         section("B)");
         let n = [];
@@ -44,11 +50,11 @@
         n[1] = prompt("Give me another number:");
         n[2] = prompt("Give me another number:");
 
+        let res = "Not all numbers are smaller than 10";
         if (n[0] == 10 && n[1] == 10 && n[2] == 10) {
-            document.write("All numbers are smaller than 10");
+            res = "All numbers are smaller than 10";
         }
-        br();
-        document.write("Not all numbers are smaller than 10");
+        render(res, false);
 
         section("C)");
         let x = prompt("Give me an X coodinate:");
@@ -68,7 +74,7 @@
         let salary = parseInt(prompt("Insert you salary"));
         let expirience = parseInt(prompt("Insert how many years you worked for the company"));
 
-        if (salary < 500){
+        if (salary < 500) {
             if (expirience >= 10) {
                 salary *= 1.2;
             } else {
@@ -77,6 +83,13 @@
         }
 
         render("Your salary should be", salary);
+
+        section("E)");
+        res = "All numbers are bigger or equal to 10";
+        if (n[0] < 10 || n[1] < 10 || n[2] < 10) {
+            res = "Some numbers are smaller than 10";
+        }
+        render(res, false);
 
     </script>
 </body>
