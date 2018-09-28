@@ -27,9 +27,51 @@
 
 <body>
     <script>
+        section("A)");
+        let nums = [];
+        nums[0] = parseInt(prompt("Give me a number:"));
+        nums[1] = parseInt(prompt("Give me another number:"));
+        nums[2] = parseInt(prompt("Give me another number:"));
 
+        let res = nums[0];
+        if (nums[1] > res && nums[1] > nums[2]) {
+            res = nums[1];
+        } else if (nums[2] > res) {
+            res = nums[2];
+        }
 
-        
+        render("The max num is", res);
+
+        section("B)");
+        res = nums[0];
+        if (nums[1] < res && nums[1] < res) {
+            res = nums[1];
+        } else if (nums[2] < res) {
+            res = nums[2];
+        }
+
+        render("The min num is", res);
+
+        section("C)");
+        let n = parseInt(prompt("Give me a number between 0 and 999"));
+        let digits = 1;
+        if(n > 9) {
+            digits = 2;
+        } else if(n > 99){
+            digits = 3;
+        }
+        render("Number " + n + " have", digits + " digits");
+
+        section("D)");
+        n = parseInt(prompt("Give me a number:"));
+        let s = "zero";
+        if (n>0){
+            s = "positive";
+        } else {
+            s = "negative";
+        }
+        render("Number " + n + " is", s);
+
     </script>
 </body>
 
