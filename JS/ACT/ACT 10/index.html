@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ACTIVITAT</title>
+    <script>
+        // <Helpers>
+        function br() {
+            document.write("<br>");
+        }
+
+        function section(name) {
+            document.write(name);
+            br();
+        }
+
+        function render(title, total) {
+            res = title;
+            if (total !== false && total !== undefined) {
+                res += ": " + total;
+            }
+
+            document.write(res);
+            br();
+        }
+        // </Helpers>
+    </script>
+</head>
+
+<body>
+    <script>
+        section("A)");
+        let i = 0;
+        while (i < 50) {
+            document.write(i + 1, ", ");
+            i++;
+        }
+        br();
+        i = 0;
+        while (i < 50) {
+            document.write(50 - i, ", ");
+            i++;
+        }
+        br();
+        i = 0;
+        while (i <= 50) {
+            document.write(i - 50, ", ");
+            i++;
+        }
+        br();
+
+        section("B)");
+        i = 0;
+        while (i < 100) {
+            i += 2;
+            document.write(i, ", ");
+        }
+        br();
+
+        section("C)");
+        i = 0;
+        while (i < 25) {
+            document.write(11 * ++i, ", ");
+        }
+        br();
+
+        section("D)");
+        i = 0
+        while (i < 10) {
+            document.write(7 * ++i, ", ");
+        }
+        br();
+
+        section("E)");
+        i = 0;
+        let totalMarks = 10;
+        let approved = 0;
+        while (i < totalMarks){
+            approved += (prompt("Give me a mark from a student") >= 5 ) ? 1 : 0;
+            i++;
+        }
+        render("The total number of approved students is", approved);
+        render("The total number of failed students is", totalMarks - approved);
+
+        section("E)");
+        let totalHeight = 0;
+        let totalPeople = 5;
+        i = 0;
+        while (i < totalPeople){
+            totalHeight += parseInt(prompt("Say me one height"));
+            i++;
+        }
+        render("The average height is", totalHeight/totalPeople);
+
+        section("G)");
+        let totalWorkers = 5;
+        let totalSalary = 0;
+        let between = 0;
+        let biggerThan = 0;
+        i = 0;
+        while(i < totalWorkers){
+            let salary = parseInt(prompt("Say me a salary"));
+
+            totalSalary += salary;
+            if (salary <= 1000 && salary >= 500){
+                between++;
+            } else if (salary > 1000){
+                biggerThan++;
+            }
+            i++;
+        }
+        render("A total of " + (totalWorkers - (between + biggerThan)) + " have a salary lower than 500");
+        render("A total of " + between + " have a salary betweeen 500 and 1000");
+        render("A total of " + biggerThan  + " have a higger salary than 1000");
+        render("The total salary of all workers is", totalSalary);
+
+        section("H)");
+        function askList(totalElements, message){
+            let i = 0;
+            let list = [];
+            while (i < totalElements){
+             list[i] = prompt(message);
+             i++;
+            }
+            return list;
+        }
+
+        function totalSum(numList){
+            let i = 0;
+            let sum = 0;
+            while (i < numList.lenght){
+                sum += parseInt(numList[i]);
+                i++;
+            }
+            return sum;
+        }
+        let listOne = askList(3, "Give me a number for the first list");
+        let listTwo = askList(3, "Give me a number for the second list");
+        
+        let biggerSum = (totalSum(listOne) > totalSum(listTwo)) ? listOne : listTwo;
+        render("This is the list with bigger sum", biggerSum.toString());
+
+        section("I)");
+        i = 0;
+        let list = askList(5, "Give me a number for the list");
+        let pairNums = 0;
+        while (i < list.length){
+            if (list[i] % 2 == 0){
+                pairNums++;
+            }
+            i++;
+        }
+        render("There are a total of " + pairNums + " pair numbers")
+        render("There are a total of " + (list.length - pairNums) + " odd numbers");
+
+    </script>
+</body>
+
+</html>
