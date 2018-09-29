@@ -17,19 +17,146 @@
             br();
         }
 
+
         function render(title, total) {
-            document.write(title, ": ", total);
+            res = title;
+            if (total !== false && total !== undefined) {
+                res += ": " + total;
+            }
+
+            document.write(res);
             br();
         }
+
         // </Helpers>
     </script>
 </head>
 
 <body>
     <script>
-        
+        section("A)");
+        let word = prompt("Say me one of the following words to translate it: (house, table, dog, cat)");
+        switch (word.toLowerCase()) {
+            case "house":
+                render("casa", false);
+                break;
+            case "table":
+                render("taula", false);
+                break;
+            case "dog":
+                render("perro", false);
+                break;
+            case "cat":
+                render("gato", false);
+                break;
+            default:
+                render("No has elegido una opción valida");
+        }
+        section("B)");
+        let month = prompt("Say me the name of a month:");
+        let n = 0;
+        switch (month.toLowerCase()) {
+            case "january":
+                n = 1;
+                break;
+            case "february":
+                n = 2;
+                break;
+            case "march":
+                n = 3;
+                break;
+            case "april":
+                n = 4;
+                break;
+            case "may":
+                n = 5;
+                break;
+            case "june":
+                n = 6;
+                break;
+            case "july":
+                n = 7;
+                break;
+            case "august":
+                n = 8;
+                break;
+            case "september":
+                n = 9;
+                break;
+            case "october":
+                n = 10;
+                break;
+            case "november":
+                n = 11;
+                break;
+            case "december":
+                n = 12;
+                break;
+            default:
+                render("Thats not a month", false);
+        }
 
-        
+        render("The number of that month is", n);
+
+        section("C)");
+        n = parseInt(prompt("Give me the number of a month"));
+        switch (n) {
+            case 1:
+                month = "January 31 days";
+                break;
+            case 2:
+                month = "February 28 or 29 days";
+                break;
+            case 3:
+                month = "March 31 days";
+                break;
+            case 4:
+                month = "April 30 days";
+                break;
+            case 5:
+                month = "May 31 days";
+                break;
+            case 6:
+                month = "June 30 days";
+                break;
+            case 7:
+                month = "July 31 days";
+                break;
+            case 8:
+                month = "August 31 days";
+                break;
+            case 9:
+                month = "September 30 days";
+                break;
+            case 10:
+                month = "October 31 days";
+                break;
+            case 11:
+                month = "November 30 days";
+                break;
+            case 12:
+                month = "December 31 days";
+                break;
+            default:
+                render("Thats not a month", false);
+        }
+        render(month, false);
+
+        section("D)");
+        let letter = prompt("Give me a letter");
+        let type = "Consonant";
+        switch (letter.toLowerCase()) {
+            case "a":
+            case "e":
+            case "i":
+            case "o":
+            case "u":
+                type = "Vowel";
+                break;
+        }
+        render("The letter " + letter + " is a", type);
+
+
     </script>
 </body>
 
