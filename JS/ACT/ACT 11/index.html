@@ -23,14 +23,13 @@
                 res += ": " + total;
             }
 
-            document.write(res);
-            br();
+            section(res);
         }
         // </Helpers>
     </script>
     <script>
         class Person {
-            constructor (ID, age, name, gender){
+            constructor(ID, age, name, gender) {
                 this.ID = ID;
                 this.age = age;
                 this.name = name;
@@ -44,8 +43,9 @@
     <script>
         section("A)");
         let sum = 0;
+        let n;
         do {
-            let n = parseFloat(prompt("Say me a number"));
+            n = parseFloat(prompt("Say me a number"));
             sum += n;
         } while (n != 9999)
         let print = "ZERO";
@@ -58,19 +58,56 @@
 
         section("B)");
         let people = [];
-        let cont = 0;
+        let totalMen = 0;
+        let betweenWorkAge = 0;
+        let oldestWomanName = "";
+        let oldWomanAge = 0;
+        let youngestManID = 0;
+        let youngManAge = 0;
+        let id = 0;
         do {
-            let id = prompt("What's the person ID");
+            id = prompt("What's the person ID");
             let name = prompt("Name");
             let age = prompt("Age");
-            let gender = prompt("Male/Femdale");
-            
+            let gender = prompt("Male/Female");
+
             people.push(new Person(id, age, name, gender));
-            cont++;
-        } while(id != 0)
+
+            if (gender.toLowerCase() == "male") {
+                totalMen++;
+            }
+
+            if (age >= 18 && age <= 65) {
+                betweenWorkAge++;
+            }
+
+            if (age > oldWomanAge && gender.toLowerCase() == "female") {
+                oldestWomanName = name;
+            }
+
+            if ((youngManAge == 0 || age < youngManAge) && gender.toLowerCase() == "male") {
+                youngestManID = id;
+            }
+        } while (id != 0)
 
         render("There is a total of " + people.length + " people");
-        
+        render("There are " + totalMen + " men, and " + (people.length - totalMen) + " women");
+        render("A total of " + betweenWorkAge + " people are in working age");
+        render("The name of the oldest woman is", oldestWomanName);
+        render("The ID of the youngest man is", youngestManID);
+
+        section("C)");
+        let finish = false;
+        sum = 0;
+        do {
+            let client = prompt("Say me the client name");
+            let accNum = prompt("What's your account number");
+            let money = parseFloat(prompt("How much money does this account have"));
+            sum += money;
+            render(client + " is the owner of " + accNum + " account with " + money + " €");
+            finish = (prompt("Finish? (True/False)").toLowerCase() == "true") ? true : false;
+        } while (!finish)
+        render("The total sum of money is " + sum + " €");
 
 
     </script>
