@@ -28,15 +28,49 @@
         }
         // </Helpers>
     </script>
+    <script>
+        class Person {
+            constructor (ID, age, name, gender){
+                this.ID = ID;
+                this.age = age;
+                this.name = name;
+                this.gender = gender;
+            }
+        }
+    </script>
 </head>
 
 <body>
     <script>
+        section("A)");
+        let sum = 0;
+        do {
+            let n = parseFloat(prompt("Say me a number"));
+            sum += n;
+        } while (n != 9999)
+        let print = "ZERO";
+        if (sum > 0) {
+            print = "POSITIVE";
+        } else if (sum < 0) {
+            print = "NEGATIVE";
+        }
+        render("The sum of all numbers is", print);
+
+        section("B)");
+        let people = [];
+        let cont = 0;
+        do {
+            let id = prompt("What's the person ID");
+            let name = prompt("Name");
+            let age = prompt("Age");
+            let gender = prompt("Male/Femdale");
+            
+            people.push(new Person(id, age, name, gender));
+            cont++;
+        } while(id != 0)
+
+        render("There is a total of " + people.length + " people");
         
-
-
-
-
 
 
     </script>
