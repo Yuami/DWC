@@ -51,6 +51,36 @@
                 }
             }
         }
+
+        class TriangleInfo {
+            constructor(a, b, c) {
+                this.a = a;
+                this.b = b;
+                this.c = c;
+                this.type = TriangleInfo.getType(this);
+            }
+
+            static getType(t) {
+                TriangleInfo.types = ["Equilateral", "Isosceles", "Scalene"];
+                let type = TriangleInfo.types[2];
+                let a = t.a, b = t.b, c = t.c;
+
+                if (a == b && a == c) {
+                    this.type = TriangleInfo.types[0];
+                } else if (a == b || a == c || b == c) {
+                    this.type = TriangleInfo.types[1];
+                }
+                return type;
+            }
+
+            static createTriangleInfo() {
+                let a = parseInt(prompt("Give me a lenght"));
+                let b = parseInt(prompt("Give me a lenght"));
+                let c = parseInt(prompt("Give me a lenght"));
+
+                return new TriangleInfo(a, b, c);
+            }
+        }
     </script>
 </head>
 
@@ -71,7 +101,7 @@
         let sum = 0;
         for (let i = 0; i < total; i++) {
             let n = parseInt(prompt("Give me a number"));
-            if (total - i == 5){
+            if (total - i == 5) {
                 sum += n;
             }
         }
@@ -79,15 +109,92 @@
 
         section("C)");
         for (let i = 0; i < 10; i++) {
-            document.write((i+1) * 5, ", ");
+            document.write((i + 1) * 5, ", ");
         }
+        br();
 
         section("D)");
         let n = parseInt(prompt("Give me a number"));
-        for (let i = 0; i < 10;i++) {
-            document.write((i+1) * n, ", ");
+        for (let i = 0; i < 10; i++) {
+            document.write((i + 1) * n, ", ");
+        }
+        br();
+
+        section("E)");
+        triangles = [];
+        let equilateral = 0;
+        let isosceles = 0;
+        let scalene = 0;
+
+        for (let i = 0; i < 4; i++) {
+            triangles[i] = TriangleInfo.createTriangleInfo();
+            let type = triangles[i].type;
+
+            if (type == TriangleInfo.types[0]) {
+                equilateral++;
+            } else if (type == TriangleInfo.types[1]) {
+                isosceles++;
+            } else {
+                scalene++;
+            }
         }
 
+        let max = TriangleInfo.types[0];
+        if (isosceles > equilateral && isosceles > scalene) {
+            max = TriangleInfo.types[1];
+        } else if (scalene > equilateral) {
+            max = TriangleInfo.types[2];
+        }
+        render("There are " + equilateral + " equilateral triangles");
+        render("There are " + isosceles + " isosceles triangles");
+        render("There are " + scalene + " scalene triangles");
+        render(max + "triangles appeared more times");
+
+        section("F)");
+        let positive = 0;
+        let negative = 0;
+        let odds = 0;
+        let evenSum = 0;
+        for (let i = 0; i < 10; i++) {
+            let n = parseInt(prompt("Give me a number"));
+            if (n >= 0) {
+                positive++;
+            } else {
+                negative++;
+            }
+
+            if (n % 2 == 0) {
+                evenSum += n;
+            } else {
+                odds++;
+            }
+        }
+
+        render("There are a total of " + positive + " positive numbers");
+        render("There are a total of " + negative + " negative numbers");
+        render("There are a total of " + odds + " numbers");
+        render("The sum of even numbers is " + evenSum);
+
+        section("G)");
+        let classAverages = [5, 6, 11];
+        for (let i = 0; i < classAverages.length; i++) {
+            let sum = 0;
+            for (let k = 0; k < classAverages[i]; k++) {
+                sum += parseInt(prompt("Give me a mark for a student in class numer " + (i + 1)));
+            }
+            classAverages[i] = sum / classAverages[i];
+            render("The class average for class number " + (i + 1), classAverages[i]);
+        }
+        let index = 0;
+        max = classAverages[index]
+        for (let i = 1; i < classAverages.length; i++) {
+            const avg = classAverages[i];
+            if (avg > max) {
+                max = avg;
+                index = i;
+            }
+        }
+        render("The class with max average is class " + (index + 1));
     </script>
 </body>
 
