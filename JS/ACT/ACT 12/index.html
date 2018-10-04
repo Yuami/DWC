@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ACTIVITAT</title>
+    <script>
+        // <Helpers>
+        function br() {
+            document.write("<br>");
+        }
+
+        function section(name) {
+            document.write(name);
+            br();
+        }
+
+        function render(title, total) {
+            res = title;
+            if (total !== false && total !== undefined) {
+                res += ": " + total;
+            }
+
+            section(res);
+        }
+        // </Helpers>
+    </script>
+    <script>
+        class Triangle {
+
+            constructor(b, h) {
+                this.base = b;
+                this.height = h;
+                this.area = b * h / 2;
+                Triangle.countBigger(this.area);
+            }
+
+            show() {
+                render("Base", this.base);
+                render("Height", this.height);
+                render("Area", this.area);
+            }
+
+            static countBigger(area) {
+                if (Triangle.bigger >= 0) {
+                    Triangle.bigger += area > 12 ? 1 : 0;
+                } else {
+                    Triangle.bigger = area > 12 ? 1 : 0;
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <script>
+        section("A)");
+        let triangles = [];
+        for (let i = 0; i < 3; i++) {
+            let h = parseInt(prompt("Dime la altura de un triangulo"));
+            let b = parseInt(prompt("Dime la base del triangulo"));
+            triangles[i] = new Triangle(b, h);
+            triangles[i].show();
+        }
+        render("There are " + Triangle.bigger + " triangles with area bigger than 12");
+
+        section("B)");
+        let total = 10;
+        let sum = 0;
+        for (let i = 0; i < total; i++) {
+            let n = parseInt(prompt("Give me a number"));
+            if (total - i == 5){
+                sum += n;
+            }
+        }
+        render("The total sum of the las 5 numbers is", sum);
+
+        section("C)");
+        for (let i = 0; i < 10; i++) {
+            document.write((i+1) * 5, ", ");
+        }
+
+        section("D)");
+    </script>
+</body>
+
+</html>
