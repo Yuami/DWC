@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ACTIVITAT</title>
+    <style>
+        * {
+            font-size: 1.5em;
+        }
+    </style>
+    <script>
+        // <Helpers>
+        function br() {
+            document.write("<br>");
+        }
+
+        function section(name) {
+            document.write(name);
+            br();
+        }
+
+        function render(title, total) {
+            res = title;
+            if (total !== false && total !== undefined) {
+                res += ": " + total;
+            }
+
+            section(res);
+        }
+        // </Helpers>
+    </script>
+</head>
+
+<body>
+    <script>
+        section("A)");
+        let n = parseInt(prompt("Give me a number"));
+        render("The power of 3 is", Math.pow(n,3));
+        section("B)");
+        render("The square root of the number is", Math.sqrt(n));
+    </script>
+</body>
+
+</html>
