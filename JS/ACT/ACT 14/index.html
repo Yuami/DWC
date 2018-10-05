@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ACTIVITAT</title>
+    <script>
+        // <Helpers>
+        function br() {
+            document.write("<br>");
+        }
+
+        function section(name) {
+            document.write(name);
+            br();
+        }
+
+        function render(title, total) {
+            res = title;
+            if (total !== false && total !== undefined) {
+                res += ": " + total;
+            }
+
+            section(res);
+        }
+        // </Helpers>
+    </script>
+</head>
+
+<body>
+    <script>
+        function Addition(num, num2){
+            this.n = num;
+            this.n2 = num2;
+            this.loadValue1 = (n) => this.n = n;
+            this.loadValue2 = (n2) => this.n2 = n2;
+            this.result = () => n + n2;
+        }
+
+        function Person(name, age){
+            this.name = name;
+            this.age = age;
+        }
+
+        function Company(name, workAge){
+            this.name = name;
+            this.workAge = workAge;
+        }
+
+        function totalInWorkAge(persons, {workAge}){
+            let total = 0;
+            for (const p of persons) {
+                if (p.age <= workAge){
+                    total++;
+                }
+            }
+            return total;
+        }
+        let persons = new Array(2);
+        let name, age;
+        for (let i = 0; i < persons.length; i++) {
+            const p = persons[i];
+            name = prompt("What's this person name?");
+            age = parseInt(prompt("What's this person age?"));
+            p = new Person(name,age);
+        }
+        name = prompt("What's this company name?");
+        age = parseInt(prompt("What's this company min work age?"));
+        let company = new Company(name, age);
+
+        console.log(totalInWorkAge(persons, company));
+        
+
+    </script>
+</body>
+
+</html>

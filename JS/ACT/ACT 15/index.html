@@ -11,15 +11,18 @@
         function br() {
             document.write("<br>");
         }
+
         function section(name) {
             document.write(name);
             br();
         }
+
         function render(title, total) {
             res = title;
             if (total !== false && total !== undefined) {
                 res += ": " + total;
             }
+
             section(res);
         }
         // </Helpers>
@@ -28,32 +31,13 @@
 
 <body>
     <script>
-        function a(one, two, three) {
-            if (two < one && two < three) {
-                return two;
-            } else if (three < one) {
-                return three;
-            }
-            return one;
-        }
-        function b(one, two, three) {
-            let ordered = [one, two, three];
-            ordered.sort((a, b) => a - b);
-            render(ordered.toString());
-        }
+        
 
-        function c(side) {
-            return side * 4;
-        }
-        function d(n) {
-            return n.toString().length;
-        }
-        function e(one, two, three) {
-            return (one + two + three) / 3;
-        }
-        function f(nums) {
-            return nums.reduce((a, b) => a + b);
-        }
+
+
+
+
+
     </script>
 </body>
 
