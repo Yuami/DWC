@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ACTIVITAT</title>
+    <style>
+        * {
+            font-size: 1.5em;
+        }
+    </style>
+    <script>
+        // <Helpers>
+        function br() {
+            document.write("<br>");
+        }
+
+        function section(name) {
+            document.write(name);
+            br();
+        }
+
+        function render(title, total) {
+            res = title;
+            if (total !== false && total !== undefined) {
+                res += ": " + total;
+            }
+
+            section(res);
+        }
+        // </Helpers>
+    </script>
+</head>
+
+<body>
+    <script>
+        section("A)");
+        let vector = new Array(8);
+        for (let i = 0; i < 8; i++) {
+            vector.push(parseInt(prompt("Give me a number")));
+        }
+        let sum = vector.reduce((a, b) => a + b);
+        let onlyBigger = vector.reduce((a, b) => b > 5 ? a + b : a, 0);
+        let countBigger = vector.reduce((a, b) => b > 5 ? ++a : a, 0);
+        render("Total sum", sum);
+        render("Average", sum / vector.length);
+        render("Sum bigger than 5", onlyBigger);
+        render("Count of numbers bigger than 5", countBigger);
+
+        section("B)");
+        let n = parseInt(prompt("Give me a number"));
+        vector = new Array(n);
+        for (let i = 0; i < 2; i++) {
+            vector[i] = parseInt(prompt("Give me a number"));
+        }
+        for (let i = 2; i < n; i++) {
+            vector[i] = vector[i - (i % 2 + 1)];
+        }
+
+        let sum = vector.reduce((a, b) => a + b);
+        render(vector);
+        render(sum);
+    </script>
+</body>
+
+</html>
