@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ACTIVITAT</title>
+    <style>
+        * {
+            font-size: 1.5em;
+        }
+    </style>
+    <script>
+        // <Helpers>
+        function br() {
+            document.write("<br>");
+        }
+
+        function section(name) {
+            document.write(name);
+            br();
+        }
+
+        function render(title, total) {
+            res = title;
+            if (total !== false && total !== undefined) {
+                res += ": " + total;
+            }
+
+            section(res);
+        }
+
+        // </Helpers>
+    </script>
+</head>
+
+<body>
+<script>
+    function reverse(str) {
+        return (str === "") ? "" : reverse(str.substr(1)) + str.charAt(0);
+    }
+
+    function lonelyChars(phrase) {
+        let index = phrase.indexOf(" ");
+        if (index === -1) {
+            return ""
+        }
+
+        if (phrase.charAt(index + 2) === " " && phrase.charAt(index + 1) !== " "){  //Is a char between spaces?
+           return phrase.charAt(index +1) + " " + lonelyChars(phrase.substring(index + 2)); //Add to string the lonely and unhappy char :(
+        }
+
+        return lonelyChars(phrase.substring(index + 1)); //Try from next position
+    }
+
+    function countVowels(phrase){
+        return phrase.match(/[aeiou]/gi).length;
+    }
+
+    //
+    // section("A)");
+    // let s = "end";
+    // let names = [];
+    // do {
+    //     names.push(prompt("Say me a name (end to finish)"));
+    // } while (s !== "end");
+    // render(`There is a total of ${names.length} words typed`);
+    //
+    // section("B)");
+    // let phrase = prompt("Say me a phrase");
+    // let word = prompt("What word should I searh for?");
+    // let pos = phrase.indexOf(word);
+    // render(pos === -1 ? "We coudn't find the word" : pos);
+    //
+    // section("C)");
+    // word = prompt("Say me a word");
+    // if (word === reverse(word)) {
+    //     render("Is a palindrome");
+    // }
+    //
+    // section("D)");
+    // let email = prompt("Enter an email");
+    // if (email.indexOf("@") !== -1) {
+    //     render(true);
+    // } else {
+    //     render(false);
+    // }
+    section("E)");
+    word = prompt("Say me a word or phrase");
+    render(word.substring(word.length / 2));
+    render(word.charAt(word.length - 1));
+    render(reverse(word));
+    render(lonelyChars(word));
+    render(countVowels(word));
+
+    section("F)");
+    let phrase = prompt("Say me a phrase");
+    phrase = phrase.split(" ");
+    for (let word of phrase){
+        render(word)
+    }
+</script>
+</body>
+
+</html>
