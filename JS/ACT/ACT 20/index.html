@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ACTIVITAT</title>
+    <style>
+        * {
+            font-size: 1.5em;
+        }
+    </style>
+    <script>
+        // <Helpers>
+        function br() {
+            document.write("<br>");
+        }
+
+        function section(name) {
+            document.write(name);
+            br();
+        }
+
+        function render(title, total) {
+            res = title;
+            if (total !== false && total !== undefined) {
+                res += ": " + total;
+            }
+
+            section(res);
+        }
+        // </Helpers>
+    </script>
+</head>
+
+<body>
+    <input type="text" name="a" id="a">
+    <button onclick="alert(document.getElementById('a').value)">Show Value</button>
+
+    <input type="text" name="b1" id="b1">
+    <input type="text" name="b2" id="b2">
+    <button onclick="biggerAlert()">Show bigger</button>
+
+    <input type="text" name="c1" id="c1">
+    <input type="text" name="c2" id="c2">
+    <button onclick="fullName()">Full Name</button>
+    <script>
+        function biggerAlert() {
+            let b1 = document.querySelector("#b1");
+            let b2 = document.querySelector("#b2");
+            alert(b1 > b2 ? b1 : b2);
+        }
+
+        function fullName(){
+            let c1 = document.querySelector("#c1");
+            let c2 = document.querySelector("#c2");
+            alert(`${c1} ${c2}`);
+        }
+
+    </script>
+</body>
+
+</html>
