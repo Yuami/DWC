@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ACTIVITAT</title>
+    <style>
+        * {
+            font-size: 1em;
+        }
+    </style>
+    <script>
+        // <Helpers>
+        function br() {
+            document.write("<br>");
+        }
+
+        function section(name) {
+            document.write(name);
+            br();
+        }
+
+        function render(title, total) {
+            res = title;
+            if (total !== false && total !== undefined) {
+                res += ": " + total;
+            }
+
+            section(res);
+        }
+
+        // </Helpers>
+    </script>
+</head>
+
+<body>
+<form id="form">
+    <input type="radio" name="older18" id="older18">+18
+    <input type="radio" name="younger18" id="younger18">-18
+    <button onclick="ageAprove()">Check</button>
+</form>
+
+<script>
+    var form = document.getElementById("form");
+    function ageAprove(){
+        let age = form.querySelector("input:checked").name;
+        if (age === "older18"){
+            alert("You can enter the site");
+        } else {
+            alert("You can't enter the site");
+        }
+    }
+
+</script>
+</body>
+
+</html>
