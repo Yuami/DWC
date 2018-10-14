@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ACTIVITAT</title>
+    <style>
+        * {
+            font-size: 1em;
+        }
+    </style>
+    <script>
+        // <Helpers>
+        function br() {
+            document.write("<br>");
+        }
+
+        function section(name) {
+            document.write(name);
+            br();
+        }
+
+        function render(title, total) {
+            res = title;
+            if (total !== false && total !== undefined) {
+                res += ": " + total;
+            }
+
+            section(res);
+        }
+
+        // </Helpers>
+    </script>
+</head>
+
+<body>
+<input type="password" name="password" id="password" placeholder="Password">
+<input type="password" name="password2" id="password2" placeholder="Confirm password">
+<button onclick="check()">Check</button>
+<script>
+    function check() {
+        let pass = document.querySelector("#password").value;
+        let pass2 = document.querySelector("#password2").value;
+        if (pass === pass2){
+            alert("Passwords are equal");
+        } else {
+            alert("Passwords are not equal");
+        }
+    }
+
+</script>
+</body>
+
+</html>
