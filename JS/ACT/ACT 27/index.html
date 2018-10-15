@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ACTIVITAT</title>
+    <style>
+        * {
+            font-size: 1em;
+        }
+        input {
+            margin-bottom: 5px;
+        }
+    </style>
+    <script>
+        // <Helpers>
+        function br() {
+            document.write("<br>");
+        }
+
+        function section(name) {
+            document.write(name);
+            br();
+        }
+
+        function render(title, total) {
+            res = title;
+            if (total !== false && total !== undefined) {
+                res += ": " + total;
+            }
+
+            section(res);
+        }
+
+        // </Helpers>
+    </script>
+</head>
+
+<body>
+<table style="border: 1px solid black">
+    <tr onmouseover="changeBG(this,'#ff696d')" onmouseout="changeBG(this, '#fff')">
+        <td>RED</td>
+        <td>RED</td>
+        <td>RED</td>
+        <td>RED</td>
+    </tr>
+    <tr onmouseover="changeBG(this,'#48e6ff')" onmouseout="changeBG(this, '#fff')">
+        <td>BLUE</td>
+        <td>BLUE</td>
+        <td>BLUE</td>
+        <td>BLUE</td>
+    </tr>
+    <tr onmouseover="changeBG(this,'#95ff56')" onmouseout="changeBG(this, '#fff')">
+        <td>GREEN</td>
+        <td>GREEN</td>
+        <td>GREEN</td>
+        <td>GREEN</td>
+    </tr>
+</table>
+<script>
+function changeBG(e, color) {
+    e.style.backgroundColor = color;
+}
+</script>
+</body>
+
+</html>
