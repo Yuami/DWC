@@ -1,6 +1,5 @@
-$(document).ready(function () {
-    $("#second").click(() => {
-            alert("You've clicked the second paragraph");
-        }
-    )
+$(function () {
+    $("#p2").click(function() {
+        alert("You've clicked the second paragraph");
+    });
 });
