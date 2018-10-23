@@ -3,15 +3,11 @@ $(document).ready(function () {
     let add = $("#addItem");
 
     add.click(function () {
-        list.append(
-            "<li>" +
-            "<input type='text'>" +
-            "<button>REMOVE</button>" +
-            "</li>"
-        );
+        let elem = $('<li class="row">');
+        elem.append($('<input type="text">'));
+        elem.append($('<button class="btn-rmv">REMOVE</button>').click(remove));
+        $("#list-fields").append(elem);
     });
-
-    $("li").on("click", ".btn-rmv",remove);
 });
 
 function remove() {
