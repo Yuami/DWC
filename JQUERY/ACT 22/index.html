@@ -8,10 +8,51 @@
     <title>TEMPLATE</title>
     <script src="../jquery.min.js"></script>
     <script src="JS/script.js"></script>
+    <style>
+        table {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        img {
+            display: block;
+            width: 200px;
+            height: 140px;
+            margin-bottom: 5px;
+        }
+        td {
+            position: relative;
+            width: 200px;
+            height: 180px;
+        }
+        .btn {
+            font-weight: bold;
+            font-variant-caps: all-petite-caps;
+            padding: 5px 10px;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translate(-50%, 0);
+        }
+    </style>
 </head>
 
 <body>
-
+<table>
+    <tr>
+        <td>
+            <img src="https://images.pexels.com/photos/953206/pexels-photo-953206.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                 alt="Tea">
+            <button class="btn">Visibility</button>
+        </td>
+        <td>
+            <img src="https://images.pexels.com/photos/841303/pexels-photo-841303.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                 alt="Cows">
+            <button class="btn">Visibility</button>
+        </td>
+    </tr>
+</table>
 </body>
 
 </html>
