@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Libreria</title>
+    <script src="../../jquery.min.js"></script>
+    <script src="JS/Book.js"></script>
+    <script src="JS/Shelve.js"></script>
+    <script src="JS/script.js"></script>
+    <style>
+        #show * {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+<label for="title">TITLE: </label>
+<input type="text" name="titles" id="title">
+<label for="pages">NUM.  PAGES: </label>
+<input type="text" name="pages" id="pages">
+
+<label for="cats">CATEGORY: </label>
+<select name="categories" id="cats">
+    <option value="CLASSIC">CLASSIC</option>
+    <option value="SCIENCE">SCIENCE</option>
+    <option value="SPORTS">SPORTS</option>
+    <option value="COMEDY">COMEDY</option>
+</select>
+<br>
+<label for="col">POSITION (COL / ROW):</label>
+<select id="col">
+    <option value="0">0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+</select>
+<label for="row">/</label>
+<select id="row">
+    <option value="0">0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+</select>
+<br/>
+<button id="add">ADD BOOK</button>
+<button id="remove">REMOVE BOOK</button>
+<button id="printAll">PRINT ALL BOOKS</button>
+<button id="printLibrary">PRINT LIBRARY</button>
+<button id="totalNum">NUM BOOKS</button>
+<hr/>
+<div id="printer"></div>
+</body>
+</html>
